@@ -1,0 +1,474 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #ffffff;
+    text-align: center;
+    background-image: url("background.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Navbar Styles */
+nav {
+    display: flex;
+    justify-content: space-evenly; /* Equal spacing between elements */
+    align-items: center;
+    background: black;
+    padding: 10px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    color: white;
+    z-index: 1000;
+    animation: fadeIn 1s ease-in-out;
+}
+.container h1:hover{
+    color:purple;
+    transform: scale(1.01);
+}
+.nav-logo img {
+    max-width: 100px;
+    height: auto;
+}
+p:hover {
+    color: rgb(102, 101, 101);
+}
+.nav-links {
+    display: flex;
+    gap: 40px; /* Equal spacing between links */
+}
+#about{
+    background-image: url("image1.png");
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    transition: all 0.3s ease;
+    position: relative;
+    font-family: "Big Shoulders Stencil", sans-serif;
+    font-optical-sizing: auto;
+    font-weight:weight;
+    font-style: normal;
+}
+
+nav a:hover {
+    color: #6a11cb;
+    transform: scale(1.1);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #6a11cb;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Container and Other Sections */
+.container {
+    margin:15px auto;
+    background-color: transparent;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease-in-out;
+}
+
+section {
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #000000bd;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Event Section with Horizontal Image Scroll */
+.event-details {
+    position: relative;
+}
+
+.image-scroll-section {
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+}
+#event h2{
+    font-family: "Big Shoulders Stencil", sans-serif;
+    font-optical-sizing: auto;
+    font-weight:weight;
+    font-style: normal;
+    font-size: 30px;
+}
+#event h2:hover{
+    color: #6a11cb;
+}
+.image-scroll-container {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scrollImages 20s linear infinite;
+    height: 400px;
+
+}
+
+.image-scroll-section:hover .image-scroll-container {
+    animation-play-state: paused; /* Pause on hover */
+}
+
+.image-scroll-container img {
+    display: inline-block;
+    margin-right: 15px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.image-scroll-container img:hover {
+    transform: scale(1.05);
+}
+
+/* Animation for Image Scroll */
+@keyframes scrollImages {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Hide scrollbar for a cleaner look */
+.image-scroll-section::-webkit-scrollbar {
+    display: none;
+}
+
+.image-scroll-section {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .nav-logo {
+        margin-bottom: 10px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .container {
+        margin: 20px 10px;
+        padding: 15px;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .image-scroll-container img {
+        width: 150px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+
+    .image-scroll-container img {
+        width: 120px;
+        height: 80px;
+    }
+}
+
+
+/* Welcome Section Styles */
+.welcome-container {
+    display: flex;
+    align-items: center; /* Vertically center align items */
+    gap: 20px; /* Space between image and text */
+    padding: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: fadeIn 1.5s ease-in-out;
+    height: 200px;}
+
+  .welcome{
+    font-family: "Big Shoulders Stencil", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-size:100px;}
+    
+.welcome-text {
+    font-family: "Big Shoulders Stencil", sans-serif;
+    font-optical-sizing: auto;
+    font-weight:weight;
+    font-style: normal;
+    font-size: 30px;
+  }
+
+
+.welcome-image {
+    width: 100%; /* Adjust as needed */
+    max-width: 500px; /* Limit maximum width */
+    height: 350px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.welcome-text {
+    width: 50%; /* Adjust as needed */
+    text-align: left; /* Align text to the left */
+}
+
+.welcome-text h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.welcome-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+.about_ECS_NITS{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    background:rgba(0, 0, 0, 0.5);
+}
+.about_NITS img, .about_ECS img{
+    height: 200px;
+    width: 200px;
+ 
+}
+
+.about_ECS,.about_NITS{
+    width: 50%; 
+     display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.about_NITS p, .about_NITS h1{
+    position: relative;
+    bottom: 15px;
+    position: relative;
+    left: 30px;
+}
+.about_ECS_NITS h1{
+    font-family: "Big Shoulders Stencil", sans-serif;
+    font-optical-sizing: auto;
+    font-weight:weight;
+    font-style: normal;
+    font-size: 30px;
+    position: relative;
+    left: 30px;
+}
+.about_ECS_NITS p{
+    font-family: "Big Shoulders Stencil", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-size: 20px;
+    position: relative;
+    left: 30px;
+}
+
+
+
+/*new footer*/
+
+footer {
+    color: rgb(197, 194, 194);
+    padding: 40px 0 0 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+    margin: 20px;
+}
+
+
+.footer-column h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #ffcc00;
+}
+
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin: 8px 0;
+}
+
+.footer-column ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-column ul li a:hover {
+    color: #ffcc00;
+}
+
+.footer-bottom {
+    background:black;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#spec-foot {
+    color: #ffcc00;
+}
+
+
+
+
+/* Popup Styles */
+#popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+#popup.hidden {
+    display: none;
+}
+
+.popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    position: relative;
+    color: #333;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+
+#popupTitle {
+    margin-top: 0;
+}
+
+#popupText {
+    margin: 20px 0;
+}
